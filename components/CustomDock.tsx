@@ -83,6 +83,8 @@ export function CustomDock({}: { orientation?: "vertical" | "horizontal" }) {
 		i18n.changeLanguage(newLang);
 	};
 
+	const flagSize = isLargeScreen ? "1.2em" : "1em";
+
 	return (
 		<TooltipProvider>
 			<motion.div
@@ -183,8 +185,8 @@ export function CustomDock({}: { orientation?: "vertical" | "horizontal" }) {
 											countryCode="US"
 											svg
 											style={{
-												width: "1em",
-												height: "1em",
+												width: flagSize,
+												height: flagSize,
 											}}
 											title="English"
 										/>
@@ -193,8 +195,8 @@ export function CustomDock({}: { orientation?: "vertical" | "horizontal" }) {
 											countryCode="ES"
 											svg
 											style={{
-												width: "1em",
-												height: "1em",
+												width: flagSize,
+												height: flagSize,
 											}}
 											title="Español"
 										/>
