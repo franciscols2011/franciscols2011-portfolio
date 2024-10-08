@@ -31,7 +31,6 @@ const Icons = {
 			/>
 		</svg>
 	),
-
 	github: (props: IconProps) => (
 		<svg viewBox="0 0 438.549 438.549" {...props}>
 			<path
@@ -63,11 +62,7 @@ const DATA = {
 	],
 };
 
-export function CustomDock({
-	orientation = "vertical",
-}: {
-	orientation?: "vertical" | "horizontal";
-}) {
+export function CustomDock({}: { orientation?: "vertical" | "horizontal" }) {
 	const { resolvedTheme, setTheme } = useTheme();
 	const [mounted, setMounted] = useState(false);
 	const { i18n, t } = useTranslation();
