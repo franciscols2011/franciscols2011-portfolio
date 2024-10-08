@@ -2,7 +2,12 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { FaCode, FaLaptopCode, FaGraduationCap } from "react-icons/fa";
+import {
+	FaCode,
+	FaLaptopCode,
+	FaGraduationCap,
+	FaLanguage,
+} from "react-icons/fa";
 import Particles from "@/components/ui/particles";
 import { useTranslation } from "react-i18next";
 
@@ -30,6 +35,15 @@ const Education = () => {
 	}
 
 	const educationData: EducationItem[] = [
+		{
+			startDate: t("education.items.3.startDate"),
+			endDate: t("education.items.3.endDate"),
+			schoolName: t("education.items.3.schoolName"),
+			address: t("education.items.3.address"),
+			courseName: t("education.items.3.courseName"),
+			icon: <FaLanguage />,
+			iconColor: "text-green-500 dark:text-green-400",
+		},
 		{
 			startDate: t("education.items.0.startDate"),
 			endDate: t("education.items.0.endDate"),

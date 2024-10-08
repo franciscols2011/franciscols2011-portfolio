@@ -10,6 +10,7 @@ import {
 	FaJava,
 	FaPython,
 	FaAngular,
+	FaDatabase,
 } from "react-icons/fa";
 import {
 	SiSpringboot,
@@ -115,6 +116,12 @@ const skillsData = [
 		iconColor: "text-blue-300 dark:text-blue-200",
 		link: "https://cloudinary.com/documentation",
 	},
+	{
+		name: "SQLAlchemy",
+		icon: <FaDatabase />,
+		iconColor: "text-gray-700 dark:text-gray-400",
+		link: "https://www.sqlalchemy.org/",
+	},
 ];
 
 const containerVariants = {
@@ -122,9 +129,9 @@ const containerVariants = {
 	visible: {
 		opacity: 1,
 		transition: {
-			duration: 0.8,
-			ease: "easeOut",
-			staggerChildren: 0.1,
+			duration: 0.4,
+			ease: "easeInOut",
+			staggerChildren: 0.8,
 		},
 	},
 };
@@ -134,7 +141,7 @@ const skillVariants = {
 	visible: {
 		opacity: 1,
 		scale: 1,
-		transition: { duration: 0.6, ease: "easeOut" },
+		transition: { duration: 0.4, ease: "easeInOut" },
 	},
 };
 
@@ -180,7 +187,7 @@ function Skills() {
 							className="flex flex-col items-center justify-center w-24 h-24 sm:w-32 sm:h-32 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 text-sm sm:text-base font-medium rounded-lg cursor-pointer shadow transition-transform"
 							variants={skillVariants}
 							whileHover={{ scale: 1.1 }}
-							transition={{ type: "spring", stiffness: 300 }}
+							transition={{ type: "spring", stiffness: 260, damping: 20 }}
 						>
 							<div className={`text-4xl sm:text-5xl mb-2 ${skill.iconColor}`}>
 								{skill.icon}
