@@ -1,5 +1,4 @@
 // app/layout.tsx
-import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import Providers from "./providers";
@@ -17,8 +16,8 @@ const geistMono = localFont({
 });
 
 export const metadata = {
-	title: "Mi Sitio Web",
-	description: "Descripción de mi sitio web.",
+	title: "Francisco López Portfolio",
+	description: "Application with portfolio professional profile",
 };
 
 export const viewport = {
