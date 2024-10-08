@@ -1,3 +1,4 @@
+// components/Education.tsx
 "use client";
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
@@ -62,19 +63,19 @@ const Education = () => {
 		visible: {
 			opacity: 1,
 			transition: {
-				staggerChildren: 0.3,
+				staggerChildren: 0.2,
 			},
 		},
 	};
 
 	const itemVariants = {
-		hidden: { opacity: 0, x: -30 },
+		hidden: { opacity: 0, x: -20 },
 		visible: { opacity: 1, x: 0 },
 	};
 
 	return (
 		<motion.div
-			className="relative w-full p-8 rounded-lg shadow-lg bg-white dark:bg-gray-800 overflow-hidden"
+			className="relative w-full p-6 sm:p-8 rounded-lg shadow-lg bg-white dark:bg-gray-800 overflow-hidden"
 			initial="hidden"
 			animate="visible"
 			variants={listVariants}
@@ -82,41 +83,40 @@ const Education = () => {
 			<Particles
 				className="absolute inset-0 z-0"
 				color="rgba(0, 0, 0, 0.02)"
-				quantity={100}
-				size={2}
+				quantity={80}
+				size={1.5}
 			/>
-			<div className="relative z-10 w-full p-8 rounded-lg">
-				<h1 className="text-3xl font-extrabold mb-4 text-gray-800 dark:text-gray-200 tracking-wider">
+			<div className="relative z-10 w-full p-4 sm:p-6 rounded-lg">
+				<h1 className="text-2xl sm:text-3xl font-extrabold mb-3 text-gray-800 dark:text-gray-200 tracking-wide">
 					{t("education.title")}
 				</h1>
 				<motion.ol
-					className="relative border-l border-gray-300 dark:border-gray-700 ml-6"
+					className="relative border-l border-gray-300 dark:border-gray-700 ml-4 sm:ml-6"
 					variants={listVariants}
 				>
 					{educationData.map((item, index) => (
 						<motion.li
 							key={index}
-							className="mb-10 ml-6"
+							className="mb-8 sm:mb-10 ml-4 sm:ml-6"
 							variants={itemVariants}
 						>
-							<div className="flex items-center gap-4">
+							<div className="flex items-center gap-3 sm:gap-4">
 								<motion.div
-									className={`text-3xl ${item.iconColor}`}
-									whileHover={{ scale: 1.2, rotate: 10 }}
-									transition={{ type: "spring", stiffness: 300 }}
+									className={`text-2xl sm:text-3xl ${item.iconColor}`}
+									whileTap={{ scale: 0.9 }}
 								>
 									{item.icon}
 								</motion.div>
 								<div>
-									<time className="mb-1 text-sm font-normal leading-none text-gray-500 dark:text-gray-400">
+									<time className="mb-1 text-xs sm:text-sm font-normal leading-none text-gray-500 dark:text-gray-400">
 										{item.startDate} - {item.endDate || t("education.present")}
 									</time>
-									<h3 className="text-xl font-semibold text-gray-800 dark:text-gray-200">
+									<h3 className="text-lg sm:text-xl font-semibold text-gray-800 dark:text-gray-200">
 										{item.courseName} {t("education.at")}{" "}
 										{item.collegeName || item.schoolName}
 									</h3>
 									{item.address && (
-										<p className="text-base text-gray-700 dark:text-gray-300">
+										<p className="text-sm sm:text-base text-gray-700 dark:text-gray-300">
 											{item.address}
 										</p>
 									)}

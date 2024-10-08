@@ -47,7 +47,7 @@ const skillsData = [
 		name: "React.js",
 		icon: <FaReact />,
 		iconColor: "text-blue-500 dark:text-blue-400",
-		link: "react.dev",
+		link: "https://react.dev/docs/getting-started.html",
 	},
 	{
 		name: "Java",
@@ -116,11 +116,12 @@ const skillsData = [
 		link: "https://cloudinary.com/documentation",
 	},
 ];
+
 const containerVariants = {
 	hidden: {},
 	visible: {
 		transition: {
-			staggerChildren: 0.05,
+			staggerChildren: 0.1,
 		},
 	},
 };
@@ -144,7 +145,7 @@ function Skills() {
 
 	return (
 		<motion.div
-			className="relative w-full p-8 rounded-lg shadow-lg bg-white dark:bg-gray-800 overflow-hidden"
+			className="relative w-full p-6 sm:p-8 rounded-lg shadow-lg bg-white dark:bg-gray-800 overflow-hidden"
 			initial="hidden"
 			animate="visible"
 			variants={containerVariants}
@@ -152,26 +153,25 @@ function Skills() {
 			<Particles
 				className="absolute inset-0 z-0"
 				color="rgba(0, 0, 0, 0.02)"
-				quantity={100}
-				size={2}
+				quantity={80}
+				size={1.5}
 			/>
-			<div className="relative z-10 w-full p-8 rounded-lg">
-				<h1 className="text-3xl font-extrabold mb-4 text-gray-800 dark:text-gray-200 tracking-wider">
+			<div className="relative z-10 w-full p-4 sm:p-6 rounded-lg">
+				<h1 className="text-2xl sm:text-3xl font-extrabold mb-3 text-gray-800 dark:text-gray-200 tracking-wide">
 					{t("skills.title")}
 				</h1>
-				<div className="flex flex-wrap gap-6 justify-center">
+				<div className="flex flex-wrap gap-4 sm:gap-6 justify-center">
 					{skillsData.map((skill, index) => (
 						<motion.a
 							key={index}
 							href={skill.link}
 							target="_blank"
 							rel="noopener noreferrer"
-							className="flex flex-col items-center bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 text-sm font-medium px-6 py-4 rounded-lg cursor-pointer shadow"
+							className="flex flex-col items-center bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 text-xs sm:text-sm font-medium px-4 py-3 rounded-lg cursor-pointer shadow"
 							variants={skillVariants}
-							whileHover={{ scale: 1.1 }}
-							transition={{ type: "spring", stiffness: 300 }}
+							whileTap={{ scale: 0.95 }}
 						>
-							<div className={`text-4xl mb-2 ${skill.iconColor}`}>
+							<div className={`text-3xl sm:text-4xl mb-1 ${skill.iconColor}`}>
 								{skill.icon}
 							</div>
 							<span>{skill.name}</span>

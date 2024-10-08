@@ -118,19 +118,19 @@ const Projects = () => {
 		hidden: {},
 		visible: {
 			transition: {
-				staggerChildren: 0.3,
+				staggerChildren: 0.2,
 			},
 		},
 	};
 
 	const cardVariants = {
-		hidden: { opacity: 0, y: 30 },
+		hidden: { opacity: 0, y: 20 },
 		visible: { opacity: 1, y: 0 },
 	};
 
 	return (
 		<motion.div
-			className="relative w-full p-8 rounded-lg shadow-lg bg-white dark:bg-gray-800 overflow-hidden"
+			className="relative w-full p-6 sm:p-8 rounded-lg shadow-lg bg-white dark:bg-gray-800 overflow-hidden"
 			initial="hidden"
 			animate="visible"
 			variants={containerVariants}
@@ -138,37 +138,36 @@ const Projects = () => {
 			<Particles
 				className="absolute inset-0 z-0"
 				color="rgba(0, 0, 0, 0.02)"
-				quantity={100}
-				size={2}
+				quantity={80}
+				size={1.5}
 			/>
-			<div className="relative z-10 w-full p-8 rounded-lg">
-				<h1 className="text-3xl font-extrabold mb-4 text-gray-800 dark:text-gray-200 tracking-wider">
+			<div className="relative z-10 w-full p-4 sm:p-6 rounded-lg">
+				<h1 className="text-2xl sm:text-3xl font-extrabold mb-3 text-gray-800 dark:text-gray-200 tracking-wide">
 					{t("projects.title")}
 				</h1>
-				<div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+				<div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
 					{projectsData.map((project, index) => (
 						<motion.div
 							key={index}
 							className="flex flex-col rounded-lg overflow-hidden shadow-xl bg-white dark:bg-gray-700"
-							whileHover={{ scale: 1.02 }}
+							whileTap={{ scale: 0.98 }}
 							variants={cardVariants}
 						>
-							<div className="p-6 flex-grow flex flex-col">
-								<h2 className="text-2xl font-bold mb-2 text-gray-800 dark:text-gray-200">
+							<div className="p-4 sm:p-6 flex-grow flex flex-col">
+								<h2 className="text-xl sm:text-2xl font-bold mb-2 text-gray-800 dark:text-gray-200">
 									{project.title}
 								</h2>
-								<p className="text-gray-700 dark:text-gray-300 mb-4">
+								<p className="text-gray-700 dark:text-gray-300 mb-3 sm:mb-4 text-sm sm:text-base">
 									{project.description}
 								</p>
-								<div className="flex flex-wrap gap-4 mb-4">
+								<div className="flex flex-wrap gap-3 sm:gap-4 mb-3 sm:mb-4">
 									{project.technologies.map((tech, idx) => (
 										<motion.div
 											key={idx}
-											className="flex items-center gap-2 bg-gray-100 dark:bg-gray-600 text-gray-800 dark:text-gray-200 text-sm font-medium px-3 py-2 rounded cursor-pointer shadow"
-											whileHover={{ scale: 1.1, rotate: 5 }}
-											transition={{ type: "spring", stiffness: 300 }}
+											className="flex items-center gap-2 bg-gray-100 dark:bg-gray-600 text-gray-800 dark:text-gray-200 text-xs sm:text-sm font-medium px-3 py-1 rounded cursor-pointer shadow"
+											whileTap={{ scale: 0.95 }}
 										>
-											<div className={`text-xl ${tech.iconColor}`}>
+											<div className={`text-lg sm:text-xl ${tech.iconColor}`}>
 												{tech.icon}
 											</div>
 											<span>{tech.name}</span>
@@ -180,7 +179,7 @@ const Projects = () => {
 										href={project.code}
 										target="_blank"
 										rel="noopener noreferrer"
-										className="inline-block w-full text-center bg-blue-500 hover:bg-blue-600 dark:bg-blue-600 dark:hover:bg-blue-500 text-white px-4 py-2 rounded-md transition-colors duration-300"
+										className="inline-flex items-center justify-center w-full text-center bg-blue-500 hover:bg-blue-600 dark:bg-blue-600 dark:hover:bg-blue-500 text-white px-3 sm:px-4 py-2 rounded-md transition-colors duration-200"
 									>
 										<FaGithub className="inline-block mr-2" />
 										{t("projects.code")}

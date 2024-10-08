@@ -10,8 +10,8 @@ import WorkExperience from "@/components/WorkExperience";
 
 export default function Home() {
 	return (
-		<div className="w-full mx-auto flex items-center justify-center min-h-screen p-8 sm:p-20 font-sans overflow-hidden bg-gray-100 dark:bg-gray-900">
-			<main className="flex flex-col items-center justify-center gap-8 w-full max-w-3xl">
+		<div className="w-full mx-auto flex items-center justify-center min-h-screen p-4 sm:p-8 lg:p-20 font-sans overflow-hidden bg-gray-100 dark:bg-gray-900">
+			<main className="flex flex-col items-center justify-center gap-6 sm:gap-8 w-full max-w-3xl">
 				<Intro />
 				<WorkExperience />
 				<Education />

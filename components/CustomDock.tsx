@@ -68,7 +68,7 @@ export function CustomDock({}: { orientation?: "vertical" | "horizontal" }) {
 	const { i18n, t } = useTranslation();
 
 	const isLargeScreen = useMediaQuery("(min-width: 1024px)");
-	const currentOrientation = "vertical";
+	const currentOrientation = isLargeScreen ? "vertical" : "horizontal";
 
 	useEffect(() => {
 		setMounted(true);
@@ -89,22 +89,22 @@ export function CustomDock({}: { orientation?: "vertical" | "horizontal" }) {
 				className={cn(
 					"fixed",
 					isLargeScreen
-						? "top-1/2 left-8 transform -translate-y-1/2"
-						: "bottom-4 left-4",
+						? "top-1/2 left-4 transform -translate-y-1/2"
+						: "bottom-4 left-1/2 transform -translate-x-1/2",
 					"flex",
-					"flex-col",
-					"items-center",
-					isLargeScreen ? "space-y-4" : "space-y-2",
-					"bg-white dark:bg-gray-800 bg-opacity-75 dark:bg-opacity-75",
-					"backdrop-filter backdrop-blur-lg",
-					isLargeScreen ? "p-3 lg:p-4" : "p-2",
-					isLargeScreen ? "rounded-lg lg:rounded-2xl" : "rounded-lg",
-					"shadow-lg",
+					currentOrientation === "vertical"
+						? "flex-col space-y-2 sm:space-y-3"
+						: "flex-row space-x-2 sm:space-x-3",
+					"bg-white dark:bg-gray-800 bg-opacity-70 dark:bg-opacity-70",
+					"backdrop-filter backdrop-blur-md",
+					"p-1 sm:p-2",
+					"rounded-full",
+					"shadow-md",
 					"z-50"
 				)}
 				initial={{ opacity: 0, y: 50 }}
 				animate={{ opacity: 1, y: 0 }}
-				transition={{ duration: 0.8, ease: "easeOut" }}
+				transition={{ duration: 0.6, ease: "easeOut" }}
 			>
 				<Dock orientation={currentOrientation}>
 					{DATA.navbar.map((item) => (
@@ -114,9 +114,9 @@ export function CustomDock({}: { orientation?: "vertical" | "horizontal" }) {
 									<Link
 										href={item.href}
 										aria-label={item.label}
-										className="p-2 rounded-full transition-colors flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-700"
+										className="p-1 sm:p-2 rounded-full transition-colors flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-700"
 									>
-										<item.icon className="w-5 h-5 lg:w-6 lg:h-6 text-gray-800 dark:text-gray-200" />
+										<item.icon className="w-4 h-4 sm:w-5 sm:h-5 text-gray-800 dark:text-gray-200" />
 									</Link>
 								</TooltipTrigger>
 								<TooltipContent>
@@ -135,9 +135,9 @@ export function CustomDock({}: { orientation?: "vertical" | "horizontal" }) {
 										aria-label={social.name}
 										target="_blank"
 										rel="noopener noreferrer"
-										className="p-2 rounded-full transition-colors flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-700"
+										className="p-1 sm:p-2 rounded-full transition-colors flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-700"
 									>
-										<social.icon className="w-5 h-5 lg:w-6 lg:h-6 text-gray-800 dark:text-gray-200" />
+										<social.icon className="w-4 h-4 sm:w-5 sm:h-5 text-gray-800 dark:text-gray-200" />
 									</Link>
 								</TooltipTrigger>
 								<TooltipContent>
@@ -152,15 +152,15 @@ export function CustomDock({}: { orientation?: "vertical" | "horizontal" }) {
 							<TooltipTrigger asChild>
 								<button
 									aria-label={t("theme")}
-									className="p-2 rounded-full transition-colors flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-700"
+									className="p-1 sm:p-2 rounded-full transition-colors flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-700"
 									onClick={() =>
 										setTheme(resolvedTheme === "light" ? "dark" : "light")
 									}
 								>
 									{resolvedTheme === "light" ? (
-										<Moon className="w-5 h-5 lg:w-6 lg:h-6 text-gray-800" />
+										<Moon className="w-4 h-4 sm:w-5 sm:h-5 text-gray-800" />
 									) : (
-										<Sun className="w-5 h-5 lg:w-6 lg:h-6 text-gray-200" />
+										<Sun className="w-4 h-4 sm:w-5 sm:h-5 text-gray-200" />
 									)}
 								</button>
 							</TooltipTrigger>
@@ -175,7 +175,7 @@ export function CustomDock({}: { orientation?: "vertical" | "horizontal" }) {
 							<TooltipTrigger asChild>
 								<button
 									aria-label={t("language")}
-									className="p-2 rounded-full transition-colors flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-700"
+									className="p-1 sm:p-2 rounded-full transition-colors flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-700"
 									onClick={toggleLanguage}
 								>
 									{i18n.language === "es" ? (
@@ -183,8 +183,8 @@ export function CustomDock({}: { orientation?: "vertical" | "horizontal" }) {
 											countryCode="US"
 											svg
 											style={{
-												width: "1.2em",
-												height: "1.2em",
+												width: "1em",
+												height: "1em",
 											}}
 											title="English"
 										/>
@@ -193,8 +193,8 @@ export function CustomDock({}: { orientation?: "vertical" | "horizontal" }) {
 											countryCode="ES"
 											svg
 											style={{
-												width: "1.2em",
-												height: "1.2em",
+												width: "1em",
+												height: "1em",
 											}}
 											title="Español"
 										/>
