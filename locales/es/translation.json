@@ -1,29 +1,91 @@
 {
-    "contact": {
-      "title": "¡Ponte en Contacto!",
-      "description": "Si deseas ponerte en contacto conmigo, puedes enviarme un correo electrónico o seguirme en mis redes sociales.",
-      "email": "Enviar Email",
-      "linkedin": "LinkedIn",
-      "github": "GitHub"
-    },
-    "intro": {
-      "name": "Juan Francisco Lopez",
-      "description": "Desarrollador de software con experiencia en JavaScript, React, Python y Java, especializado en diseñar aplicaciones intuitivas. Habilidad para resolver problemas complejos, respaldada por 3 años en atención al cliente. Excelentes habilidades de comunicación y trabajo en equipo, con enfoque en soluciones eficientes y colaboración técnica."
-    },
-    "skills": {
-      "title": "Habilidades"
-    },
-    "projects": {
-      "title": "Proyectos",
-      "code": "Código"
-    },
-    "work_experience": {
-      "title": "Experiencia Profesional"
-    },
-    "education": {
-      "title": "Educación"
-    },
-    "theme": "Cambiar tema",
-    "language": "Cambiar idioma"
-  }
-  
+  "contact": {
+    "title": "¡Ponte en Contacto!",
+    "description": "Si deseas ponerte en contacto conmigo, puedes enviarme un correo electrónico o seguirme en mis redes sociales.",
+    "email": "Enviar Email",
+    "linkedin": "LinkedIn",
+    "github": "GitHub"
+  },
+  "intro": {
+    "name": "Juan Francisco Lopez",
+    "description": "Desarrollador de software con experiencia en JavaScript, React, Python y Java, especializado en diseñar aplicaciones intuitivas. Habilidad para resolver problemas complejos, respaldada por 3 años en atención al cliente. Excelentes habilidades de comunicación y trabajo en equipo, con enfoque en soluciones eficientes y colaboración técnica."
+  },
+  "skills": {
+    "title": "Habilidades"
+  },
+  "projects": {
+    "title": "Proyectos",
+    "code": "Código",
+    "items": [
+      {
+        "title": "Ecommerce",
+        "description": "Una aplicación de ecommerce que permite a los usuarios una experiencia de compra rápida y sencilla, agregando productos y realizando pagos a través de PayPal. También cuenta con una sección de valoración del producto."
+      },
+      {
+        "title": "Therapy Time",
+        "description": "Therapy Time es una aplicación web diseñada para agilizar la programación, comunicación y gestión de pacientes para terapeutas y sus clientes. Construida con tecnologías de punta, ofrece una plataforma segura y conveniente."
+      }
+    ]
+  },
+  "work_experience": {
+    "title": "Experiencia Profesional",
+    "at": "en",
+    "items": [
+      {
+        "startDate": "Mayo 2024",
+        "endDate": "Presente",
+        "companyName": "Integral Solutions",
+        "jobTitle": "Desarrollador de Software Genexus",
+        "description": [
+          "Creé y mantuve paneles web intuitivos con Genexus y Descartes, automatizando procesos y generando reportes detallados para optimizar operaciones.",
+          "Gestioné operaciones ABM, mejorando la integridad y precisión de los datos, desarrollando habilidades en la gestión eficiente de información."
+        ]
+      },
+      {
+        "startDate": "Agosto 2024",
+        "endDate": "Presente",
+        "companyName": "RedPagos",
+        "jobTitle": "Cajero",
+        "description": [
+          "Administro cobros y pagos, asegurando transacciones precisas y a tiempo.",
+          "Brindo un soporte personalizado a clientes en pagos y facturación, mejorando su experiencia.",
+          "Mantengo registros financieros exactos, garantizando la integridad contable."
+        ]
+      },
+      {
+        "startDate": "Enero 2023",
+        "endDate": "Agosto 2023",
+        "companyName": "Salinas del Almirón Resort Termal",
+        "jobTitle": "Recepcionista",
+        "description": [
+          "Interacción profesional con clientes, resolviendo dudas y gestionando solicitudes con empatía, mejorando su experiencia.",
+          "Implementación de soluciones en Excel para el control de reservas y auditorías, optimizando la organización.",
+          "Resolución rápida de problemas técnicos en el sistema de reservas, minimizando tiempos de inactividad.",
+          "Realización de ventas a través de la web y llamadas, empleando técnicas de persuasión para cumplir objetivos."
+        ]
+      }
+    ]
+  },
+  "education": {
+    "title": "Educación",
+    "at": "en",
+    "present": "Presente",
+    "items": [
+      {
+        "startDate": "Noviembre 2023",
+        "endDate": "Marzo 2024",
+        "collegeName": "4Geeks Academy",
+        "courseName": "Desarrollador de Software Full Stack"
+      },
+      {
+        "startDate": "2019",
+        "endDate": "2019",
+        "schoolName": "ORT",
+        "address": "Uruguay",
+        "courseName": "Analista Programador"
+      }
+    ]
+  },
+  "theme": "Cambiar tema",
+  "language": "Cambiar idioma"
+}

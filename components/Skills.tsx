@@ -22,6 +22,7 @@ import {
 	SiCloudinary,
 } from "react-icons/si";
 import Particles from "@/components/ui/particles";
+import { useTranslation } from "react-i18next";
 
 const skillsData = [
 	{
@@ -115,7 +116,6 @@ const skillsData = [
 		link: "https://cloudinary.com/documentation",
 	},
 ];
-
 const containerVariants = {
 	hidden: {},
 	visible: {
@@ -131,6 +131,8 @@ const skillVariants = {
 };
 
 function Skills() {
+	const { t } = useTranslation();
+
 	return (
 		<motion.div
 			className="relative w-full p-8 rounded-lg shadow-lg bg-white dark:bg-gray-800 overflow-hidden"
@@ -146,7 +148,7 @@ function Skills() {
 			/>
 			<div className="relative z-10 w-full p-8 rounded-lg">
 				<h1 className="text-3xl font-extrabold mb-4 text-gray-800 dark:text-gray-200 tracking-wider">
-					Habilidades
+					{t("skills.title")}
 				</h1>
 				<div className="flex flex-wrap gap-6 justify-center">
 					{skillsData.map((skill, index) => (

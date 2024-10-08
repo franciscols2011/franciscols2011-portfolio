@@ -4,8 +4,11 @@ import React from "react";
 import { FaEnvelope, FaLinkedin, FaGithub } from "react-icons/fa";
 import { motion } from "framer-motion";
 import Particles from "@/components/ui/particles";
+import { useTranslation } from "react-i18next";
 
 function ContactMe() {
+	const { t } = useTranslation();
+
 	return (
 		<motion.div
 			className="relative w-full p-8 rounded-lg shadow-lg bg-white dark:bg-gray-800 overflow-hidden"
@@ -26,7 +29,7 @@ function ContactMe() {
 					animate={{ opacity: 1, y: 0 }}
 					transition={{ duration: 1 }}
 				>
-					¡Ponte en Contacto!
+					{t("contact.title")}
 				</motion.h1>
 				<motion.p
 					className="text-gray-700 dark:text-gray-300 mb-6"
@@ -34,8 +37,7 @@ function ContactMe() {
 					animate={{ opacity: 1 }}
 					transition={{ duration: 1, delay: 0.2 }}
 				>
-					Si deseas ponerte en contacto conmigo, puedes enviarme un correo
-					electrónico o seguirme en mis redes sociales.
+					{t("contact.description")}
 				</motion.p>
 				<div className="flex flex-col md:flex-row items-center gap-4">
 					<motion.a
@@ -47,7 +49,7 @@ function ContactMe() {
 					>
 						<span className="relative flex items-center">
 							<FaEnvelope className="mr-2 text-xl" />
-							Enviar Email
+							{t("contact.email")}
 						</span>
 					</motion.a>
 					<motion.a
@@ -61,7 +63,7 @@ function ContactMe() {
 					>
 						<span className="relative flex items-center">
 							<FaLinkedin className="mr-2 text-xl" />
-							LinkedIn
+							{t("contact.linkedin")}
 						</span>
 					</motion.a>
 					<motion.a
@@ -75,7 +77,7 @@ function ContactMe() {
 					>
 						<span className="relative flex items-center">
 							<FaGithub className="mr-2 text-xl" />
-							GitHub
+							{t("contact.github")}
 						</span>
 					</motion.a>
 				</div>

@@ -4,6 +4,7 @@
 import Image from "next/image";
 import Particles from "@/components/ui/particles";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 const containerVariants = {
 	hidden: {},
@@ -20,6 +21,8 @@ const itemVariants = {
 };
 
 const Intro = () => {
+	const { t } = useTranslation();
+
 	return (
 		<motion.div
 			className="relative w-full p-8 rounded-lg shadow-lg bg-white dark:bg-gray-800 overflow-hidden"
@@ -42,7 +45,7 @@ const Intro = () => {
 				>
 					<Image
 						src="/images/franciscols2011.jpg"
-						alt="Juan Francisco Lopez"
+						alt={t("intro.name")}
 						width={150}
 						height={150}
 						className="rounded-full border-4 border-gray-300 dark:border-gray-600 shadow-lg"
@@ -53,16 +56,9 @@ const Intro = () => {
 					variants={itemVariants}
 				>
 					<h1 className="text-3xl sm:text-4xl font-extrabold mb-2 tracking-wide">
-						Juan Francisco Lopez
+						{t("intro.name")}
 					</h1>
-					<p className="text-lg leading-relaxed">
-						Desarrollador de software con experiencia en JavaScript, React,
-						Python y Java, especializado en diseñar aplicaciones intuitivas.
-						Habilidad para resolver problemas complejos, respaldada por 3 años
-						en atención al cliente. Excelentes habilidades de comunicación y
-						trabajo en equipo, con enfoque en soluciones eficientes y
-						colaboración técnica.
-					</p>
+					<p className="text-lg leading-relaxed">{t("intro.description")}</p>
 				</motion.div>
 			</div>
 		</motion.div>

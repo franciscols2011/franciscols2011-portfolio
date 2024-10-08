@@ -5,6 +5,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { FaBuilding, FaCashRegister, FaHotel } from "react-icons/fa";
 import Particles from "@/components/ui/particles";
+import { useTranslation } from "react-i18next";
 
 interface WorkExperienceItem {
 	startDate: string;
@@ -16,63 +17,59 @@ interface WorkExperienceItem {
 	iconColor?: string;
 }
 
-const workExperienceData: WorkExperienceItem[] = [
-	{
-		startDate: "Mayo 2024",
-		endDate: "Presente",
-		companyName: "Integral Solutions",
-		jobTitle: "Desarrollador de Software Genexus",
-		description: [
-			"Creé y mantuve paneles web intuitivos con Genexus y Descartes, automatizando procesos y generando reportes detallados para optimizar operaciones.",
-			"Gestioné operaciones ABM, mejorando la integridad y precisión de los datos, desarrollando habilidades en la gestión eficiente de información",
-		],
-		icon: <FaBuilding />,
-		iconColor: "text-blue-500 dark:text-blue-400",
-	},
-	{
-		startDate: "Agosto 2024",
-		endDate: "Presente",
-		companyName: "RedPagos",
-		jobTitle: "Cajero",
-		description: [
-			"Administro cobros y pagos, asegurando transacciones precisas y a tiempo.",
-			"Brindo un soporte personalizado a clientes en pagos y facturación, mejorando su experiencia.",
-			"Mantengo registros financieros exactos, garantizando la integridad contable.",
-		],
-		icon: <FaCashRegister />,
-		iconColor: "text-green-500 dark:text-green-400",
-	},
-	{
-		startDate: "Enero 2023",
-		endDate: "Agosto 2023",
-		companyName: "Salinas del Almirón Resort Termal",
-		jobTitle: "Recepción",
-		description: [
-			"Interacción profesional con clientes, resolviendo dudas y gestionando solicitudes con empatía, mejorando su experiencia.",
-			"Implementación de soluciones en Excel para el control de reservas y auditorías, optimizando la organización.",
-			"Resolución rápida de problemas técnicos en el sistema de reservas, minimizando tiempos de inactividad",
-			"Realización de ventas a través de la web y llamadas, empleando técnicas de persuasión para cumplir objetivos.",
-		],
-		icon: <FaHotel />,
-		iconColor: "text-orange-500 dark:text-orange-400",
-	},
-];
-
-const listVariants = {
-	hidden: {},
-	visible: {
-		transition: {
-			staggerChildren: 0.3,
-		},
-	},
-};
-
-const itemVariants = {
-	hidden: { opacity: 0, x: -30 },
-	visible: { opacity: 1, x: 0 },
-};
-
 const WorkExperience = () => {
+	const { t } = useTranslation();
+
+	const workExperienceData: WorkExperienceItem[] = [
+		{
+			startDate: t("work_experience.items.0.startDate"),
+			endDate: t("work_experience.items.0.endDate"),
+			companyName: t("work_experience.items.0.companyName"),
+			jobTitle: t("work_experience.items.0.jobTitle"),
+			description: t("work_experience.items.0.description", {
+				returnObjects: true,
+			}),
+			icon: <FaBuilding />,
+			iconColor: "text-blue-500 dark:text-blue-400",
+		},
+		{
+			startDate: t("work_experience.items.1.startDate"),
+			endDate: t("work_experience.items.1.endDate"),
+			companyName: t("work_experience.items.1.companyName"),
+			jobTitle: t("work_experience.items.1.jobTitle"),
+			description: t("work_experience.items.1.description", {
+				returnObjects: true,
+			}),
+			icon: <FaCashRegister />,
+			iconColor: "text-green-500 dark:text-green-400",
+		},
+		{
+			startDate: t("work_experience.items.2.startDate"),
+			endDate: t("work_experience.items.2.endDate"),
+			companyName: t("work_experience.items.2.companyName"),
+			jobTitle: t("work_experience.items.2.jobTitle"),
+			description: t("work_experience.items.2.description", {
+				returnObjects: true,
+			}),
+			icon: <FaHotel />,
+			iconColor: "text-orange-500 dark:text-orange-400",
+		},
+	];
+
+	const listVariants = {
+		hidden: {},
+		visible: {
+			transition: {
+				staggerChildren: 0.3,
+			},
+		},
+	};
+
+	const itemVariants = {
+		hidden: { opacity: 0, x: -30 },
+		visible: { opacity: 1, x: 0 },
+	};
+
 	return (
 		<motion.div
 			className="relative w-full p-8 rounded-lg shadow-lg bg-white dark:bg-gray-800 overflow-hidden"
@@ -88,7 +85,7 @@ const WorkExperience = () => {
 			/>
 			<div className="relative z-10 w-full p-8 rounded-lg">
 				<h1 className="text-3xl font-extrabold mb-4 text-gray-800 dark:text-gray-200 tracking-wider">
-					Experiencia Profesional
+					{t("work_experience.title")}
 				</h1>
 				<motion.ol
 					className="relative border-l border-gray-300 dark:border-gray-700 ml-6"
@@ -113,7 +110,7 @@ const WorkExperience = () => {
 										{item.startDate} - {item.endDate}
 									</time>
 									<h3 className="text-xl font-semibold text-gray-800 dark:text-gray-200">
-										{item.jobTitle} en {item.companyName}
+										{item.jobTitle} {t("work_experience.at")} {item.companyName}
 									</h3>
 								</div>
 							</div>

@@ -1,29 +1,91 @@
 {
-    "contact": {
-      "title": "Get in Touch!",
-      "description": "If you want to get in touch with me, you can send me an email or follow me on my social networks.",
-      "email": "Send Email",
-      "linkedin": "LinkedIn",
-      "github": "GitHub"
-    },
-    "intro": {
-      "name": "Juan Francisco Lopez",
-      "description": "Software developer experienced in JavaScript, React, Python, and Java, specializing in designing intuitive applications. Skilled at solving complex problems, backed by 3 years in customer service. Excellent communication and teamwork skills, focused on efficient solutions and technical collaboration."
-    },
-    "skills": {
-      "title": "Skills"
-    },
-    "projects": {
-      "title": "Projects",
-      "code": "Code"
-    },
-    "work_experience": {
-      "title": "Professional Experience"
-    },
-    "education": {
-      "title": "Education"
-    },
-    "theme": "Toggle Theme",
-    "language": "Change Language"
-  }
-  
+  "contact": {
+    "title": "Get in Touch!",
+    "description": "If you want to get in touch with me, you can send me an email or follow me on my social networks.",
+    "email": "Send Email",
+    "linkedin": "LinkedIn",
+    "github": "GitHub"
+  },
+  "intro": {
+    "name": "Juan Francisco Lopez",
+    "description": "Software developer experienced in JavaScript, React, Python, and Java, specializing in designing intuitive applications. Skilled at solving complex problems, backed by 3 years in customer service. Excellent communication and teamwork skills, focused on efficient solutions and technical collaboration."
+  },
+  "skills": {
+    "title": "Skills"
+  },
+  "projects": {
+    "title": "Projects",
+    "code": "Code",
+    "items": [
+      {
+        "title": "Ecommerce",
+        "description": "An ecommerce application that allows users to experience quick and easy shopping, adding products and making payments through PayPal. It also features a product rating section."
+      },
+      {
+        "title": "Therapy Time",
+        "description": "Therapy Time is a web application designed to streamline scheduling, communication, and patient management for therapists and their clients. Built with cutting-edge technologies, it offers a secure and convenient platform."
+      }
+    ]
+  },
+  "work_experience": {
+    "title": "Professional Experience",
+    "at": "at",
+    "items": [
+      {
+        "startDate": "May 2024",
+        "endDate": "Present",
+        "companyName": "Integral Solutions",
+        "jobTitle": "Genexus Software Developer",
+        "description": [
+          "Created and maintained intuitive web panels using Genexus and Descartes, automating processes and generating detailed reports to optimize operations.",
+          "Managed CRUD operations, improving data integrity and accuracy, developing skills in efficient information management."
+        ]
+      },
+      {
+        "startDate": "August 2024",
+        "endDate": "Present",
+        "companyName": "RedPagos",
+        "jobTitle": "Cashier",
+        "description": [
+          "Handled collections and payments, ensuring accurate and timely transactions.",
+          "Provided personalized support to clients in payments and billing, enhancing their experience.",
+          "Maintained precise financial records, guaranteeing accounting integrity."
+        ]
+      },
+      {
+        "startDate": "January 2023",
+        "endDate": "August 2023",
+        "companyName": "Salinas del Almirón Resort Termal",
+        "jobTitle": "Receptionist",
+        "description": [
+          "Professionally interacted with clients, resolving doubts and managing requests with empathy, enhancing their experience.",
+          "Implemented Excel solutions for reservation control and audits, optimizing organization.",
+          "Quickly resolved technical issues in the reservation system, minimizing downtime.",
+          "Conducted sales via web and calls, employing persuasion techniques to meet objectives."
+        ]
+      }
+    ]
+  },
+  "education": {
+    "title": "Education",
+    "at": "at",
+    "present": "Present",
+    "items": [
+      {
+        "startDate": "November 2023",
+        "endDate": "March 2024",
+        "collegeName": "4Geeks Academy",
+        "courseName": "Full Stack Software Developer"
+      },
+      {
+        "startDate": "2019",
+        "endDate": "2019",
+        "schoolName": "ORT",
+        "address": "Uruguay",
+        "courseName": "Programmer Analyst"
+      }
+    ]
+  },
+  "theme": "Toggle Theme",
+  "language": "Change Language"
+}

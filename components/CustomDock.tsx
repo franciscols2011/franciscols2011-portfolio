@@ -13,6 +13,10 @@ import {
 import { Dock, DockIcon } from "@/components/ui/dock";
 import { useTheme } from "next-themes";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
+import ReactCountryFlag from "react-country-flag";
+import { useMediaQuery } from "@/hooks/useMediaQuery";
+import { cn } from "@/lib/utils";
 
 export type IconProps = React.HTMLAttributes<SVGElement>;
 
@@ -66,6 +70,10 @@ export function CustomDock({
 }) {
 	const { resolvedTheme, setTheme } = useTheme();
 	const [mounted, setMounted] = useState(false);
+	const { i18n, t } = useTranslation();
+
+	const isLargeScreen = useMediaQuery("(min-width: 1024px)");
+	const currentOrientation = "vertical";
 
 	useEffect(() => {
 		setMounted(true);
@@ -75,15 +83,35 @@ export function CustomDock({
 		return null;
 	}
 
+	const toggleLanguage = () => {
+		const newLang = i18n.language === "es" ? "en" : "es";
+		i18n.changeLanguage(newLang);
+	};
+
 	return (
 		<TooltipProvider>
 			<motion.div
-				className="fixed left-8 top-1/2 transform -translate-y-1/2 hidden lg:flex flex-col items-center space-y-4"
-				initial={{ opacity: 0, x: -50 }}
-				animate={{ opacity: 1, x: 0 }}
-				transition={{ duration: 1, ease: "easeOut" }}
+				className={cn(
+					"fixed",
+					isLargeScreen
+						? "top-1/2 left-8 transform -translate-y-1/2"
+						: "bottom-4 left-4",
+					"flex",
+					"flex-col",
+					"items-center",
+					isLargeScreen ? "space-y-4" : "space-y-2",
+					"bg-white dark:bg-gray-800 bg-opacity-75 dark:bg-opacity-75",
+					"backdrop-filter backdrop-blur-lg",
+					isLargeScreen ? "p-3 lg:p-4" : "p-2",
+					isLargeScreen ? "rounded-lg lg:rounded-2xl" : "rounded-lg",
+					"shadow-lg",
+					"z-50"
+				)}
+				initial={{ opacity: 0, y: 50 }}
+				animate={{ opacity: 1, y: 0 }}
+				transition={{ duration: 0.8, ease: "easeOut" }}
 			>
-				<Dock orientation={orientation}>
+				<Dock orientation={currentOrientation}>
 					{DATA.navbar.map((item) => (
 						<DockIcon key={item.label}>
 							<Tooltip>
@@ -91,12 +119,12 @@ export function CustomDock({
 									<Link
 										href={item.href}
 										aria-label={item.label}
-										className="p-3 rounded-full transition-colors flex items-center justify-center"
+										className="p-2 rounded-full transition-colors flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-700"
 									>
-										<item.icon className="w-6 h-6 text-gray-800 dark:text-gray-200" />
+										<item.icon className="w-5 h-5 lg:w-6 lg:h-6 text-gray-800 dark:text-gray-200" />
 									</Link>
 								</TooltipTrigger>
-								<TooltipContent className="bg-gray-800 text-white">
+								<TooltipContent>
 									<p>{item.label}</p>
 								</TooltipContent>
 							</Tooltip>
@@ -112,12 +140,12 @@ export function CustomDock({
 										aria-label={social.name}
 										target="_blank"
 										rel="noopener noreferrer"
-										className="p-3 rounded-full transition-colors flex items-center justify-center"
+										className="p-2 rounded-full transition-colors flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-700"
 									>
-										<social.icon className="w-6 h-6 text-gray-800 dark:text-gray-200" />
+										<social.icon className="w-5 h-5 lg:w-6 lg:h-6 text-gray-800 dark:text-gray-200" />
 									</Link>
 								</TooltipTrigger>
-								<TooltipContent className="bg-gray-800 text-white">
+								<TooltipContent>
 									<p>{social.name}</p>
 								</TooltipContent>
 							</Tooltip>
@@ -128,21 +156,58 @@ export function CustomDock({
 						<Tooltip>
 							<TooltipTrigger asChild>
 								<button
-									aria-label="Cambiar tema"
-									className="p-3 rounded-full transition-colors flex items-center justify-center"
+									aria-label={t("theme")}
+									className="p-2 rounded-full transition-colors flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-700"
 									onClick={() =>
 										setTheme(resolvedTheme === "light" ? "dark" : "light")
 									}
 								>
 									{resolvedTheme === "light" ? (
-										<Moon className="w-6 h-6 text-gray-800" />
+										<Moon className="w-5 h-5 lg:w-6 lg:h-6 text-gray-800" />
 									) : (
-										<Sun className="w-6 h-6 text-gray-200" />
+										<Sun className="w-5 h-5 lg:w-6 lg:h-6 text-gray-200" />
 									)}
 								</button>
 							</TooltipTrigger>
-							<TooltipContent className="bg-gray-800 text-white">
-								<p>Cambiar tema</p>
+							<TooltipContent>
+								<p>{t("theme")}</p>
+							</TooltipContent>
+						</Tooltip>
+					</DockIcon>
+
+					<DockIcon>
+						<Tooltip>
+							<TooltipTrigger asChild>
+								<button
+									aria-label={t("language")}
+									className="p-2 rounded-full transition-colors flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-700"
+									onClick={toggleLanguage}
+								>
+									{i18n.language === "es" ? (
+										<ReactCountryFlag
+											countryCode="US"
+											svg
+											style={{
+												width: "1.2em",
+												height: "1.2em",
+											}}
+											title="English"
+										/>
+									) : (
+										<ReactCountryFlag
+											countryCode="ES"
+											svg
+											style={{
+												width: "1.2em",
+												height: "1.2em",
+											}}
+											title="Español"
+										/>
+									)}
+								</button>
+							</TooltipTrigger>
+							<TooltipContent>
+								<p>{t("language")}</p>
 							</TooltipContent>
 						</Tooltip>
 					</DockIcon>

@@ -19,101 +19,115 @@ import {
 	SiPaypal,
 } from "react-icons/si";
 import Particles from "@/components/ui/particles";
+import { useTranslation } from "react-i18next";
 
-const projectsData = [
-	{
-		title: "Ecommerce",
-		description:
-			"Una aplicación de ecommerce que permite a los usuarios una experiencia de compra rápida y sencilla, agregando productos y realizando pagos a través de PayPal. También cuenta con una sección de valoración del producto.",
-		code: "https://github.com/franciscols2011/mern",
-		technologies: [
-			{
-				name: "Tailwind CSS",
-				icon: <SiTailwindcss />,
-				iconColor: "text-teal-500 dark:text-teal-400",
-			},
-			{
-				name: "React",
-				icon: <FaReact />,
-				iconColor: "text-blue-500 dark:text-blue-400",
-			},
-			{
-				name: "Express.js",
-				icon: <SiExpress />,
-				iconColor: "text-gray-800 dark:text-gray-300",
-			},
-			{
-				name: "MongoDB",
-				icon: <SiMongodb />,
-				iconColor: "text-green-600 dark:text-green-500",
-			},
-			{
-				name: "JavaScript",
-				icon: <FaJsSquare />,
-				iconColor: "text-yellow-500 dark:text-yellow-400",
-			},
-			{
-				name: "PayPal API",
-				icon: <SiPaypal />,
-				iconColor: "text-blue-700 dark:text-blue-600",
-			},
-		],
-	},
-	{
-		title: "Therapy Time",
-		description:
-			"Therapy Time es una aplicación web diseñada para agilizar la programación, comunicación y gestión de pacientes para terapeutas y sus clientes. Construida con tecnologías de punta, ofrece una plataforma segura y conveniente.",
-		code: "https://github.com/franciscols2011/Therapy-Time",
-		technologies: [
-			{
-				name: "React.js",
-				icon: <FaReact />,
-				iconColor: "text-blue-500 dark:text-blue-400",
-			},
-			{
-				name: "Bootstrap",
-				icon: <FaBootstrap />,
-				iconColor: "text-purple-600 dark:text-purple-500",
-			},
-			{
-				name: "CSS3",
-				icon: <FaCss3Alt />,
-				iconColor: "text-blue-600 dark:text-blue-500",
-			},
-			{
-				name: "Python",
-				icon: <FaPython />,
-				iconColor: "text-yellow-600 dark:text-yellow-500",
-			},
-			{
-				name: "Flask",
-				icon: <SiFlask />,
-				iconColor: "text-black dark:text-gray-200",
-			},
-			{
-				name: "SQLAlchemy",
-				icon: <FaDatabase />,
-				iconColor: "text-gray-700 dark:text-gray-400",
-			},
-		],
-	},
-];
+interface Technology {
+	name: string;
+	icon: React.ReactNode;
+	iconColor: string;
+}
 
-const containerVariants = {
-	hidden: {},
-	visible: {
-		transition: {
-			staggerChildren: 0.3,
+interface Project {
+	title: string;
+	description: string;
+	code: string;
+	technologies: Technology[];
+}
+
+const Projects = () => {
+	const { t } = useTranslation();
+
+	const projectsData: Project[] = [
+		{
+			title: t("projects.items.0.title"),
+			description: t("projects.items.0.description"),
+			code: "https://github.com/franciscols2011/mern",
+			technologies: [
+				{
+					name: "Tailwind CSS",
+					icon: <SiTailwindcss />,
+					iconColor: "text-teal-500 dark:text-teal-400",
+				},
+				{
+					name: "React",
+					icon: <FaReact />,
+					iconColor: "text-blue-500 dark:text-blue-400",
+				},
+				{
+					name: "Express.js",
+					icon: <SiExpress />,
+					iconColor: "text-gray-800 dark:text-gray-300",
+				},
+				{
+					name: "MongoDB",
+					icon: <SiMongodb />,
+					iconColor: "text-green-600 dark:text-green-500",
+				},
+				{
+					name: "JavaScript",
+					icon: <FaJsSquare />,
+					iconColor: "text-yellow-500 dark:text-yellow-400",
+				},
+				{
+					name: "PayPal API",
+					icon: <SiPaypal />,
+					iconColor: "text-blue-700 dark:text-blue-600",
+				},
+			],
 		},
-	},
-};
+		{
+			title: t("projects.items.1.title"),
+			description: t("projects.items.1.description"),
+			code: "https://github.com/franciscols2011/Therapy-Time",
+			technologies: [
+				{
+					name: "React.js",
+					icon: <FaReact />,
+					iconColor: "text-blue-500 dark:text-blue-400",
+				},
+				{
+					name: "Bootstrap",
+					icon: <FaBootstrap />,
+					iconColor: "text-purple-600 dark:text-purple-500",
+				},
+				{
+					name: "CSS3",
+					icon: <FaCss3Alt />,
+					iconColor: "text-blue-600 dark:text-blue-500",
+				},
+				{
+					name: "Python",
+					icon: <FaPython />,
+					iconColor: "text-yellow-600 dark:text-yellow-500",
+				},
+				{
+					name: "Flask",
+					icon: <SiFlask />,
+					iconColor: "text-black dark:text-gray-200",
+				},
+				{
+					name: "SQLAlchemy",
+					icon: <FaDatabase />,
+					iconColor: "text-gray-700 dark:text-gray-400",
+				},
+			],
+		},
+	];
 
-const cardVariants = {
-	hidden: { opacity: 0, y: 30 },
-	visible: { opacity: 1, y: 0 },
-};
+	const containerVariants = {
+		hidden: {},
+		visible: {
+			transition: {
+				staggerChildren: 0.3,
+			},
+		},
+	};
 
-function Projects() {
+	const cardVariants = {
+		hidden: { opacity: 0, y: 30 },
+		visible: { opacity: 1, y: 0 },
+	};
+
 	return (
 		<motion.div
 			className="relative w-full p-8 rounded-lg shadow-lg bg-white dark:bg-gray-800 overflow-hidden"
@@ -129,7 +143,7 @@ function Projects() {
 			/>
 			<div className="relative z-10 w-full p-8 rounded-lg">
 				<h1 className="text-3xl font-extrabold mb-4 text-gray-800 dark:text-gray-200 tracking-wider">
-					Proyectos
+					{t("projects.title")}
 				</h1>
 				<div className="grid grid-cols-1 md:grid-cols-2 gap-8">
 					{projectsData.map((project, index) => (
@@ -169,7 +183,7 @@ function Projects() {
 										className="inline-block w-full text-center bg-blue-500 hover:bg-blue-600 dark:bg-blue-600 dark:hover:bg-blue-500 text-white px-4 py-2 rounded-md transition-colors duration-300"
 									>
 										<FaGithub className="inline-block mr-2" />
-										Código
+										{t("projects.code")}
 									</a>
 								</div>
 							</div>
@@ -179,6 +193,6 @@ function Projects() {
 			</div>
 		</motion.div>
 	);
-}
+};
 
 export default Projects;
