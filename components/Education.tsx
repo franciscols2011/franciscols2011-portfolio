@@ -1,8 +1,7 @@
-// components/Education.tsx
 "use client";
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { FaCode, FaLaptopCode } from "react-icons/fa";
+import { FaCode, FaLaptopCode, FaGraduationCap } from "react-icons/fa";
 import Particles from "@/components/ui/particles";
 import { useTranslation } from "react-i18next";
 
@@ -46,6 +45,15 @@ const Education = () => {
 			courseName: t("education.items.1.courseName"),
 			icon: <FaLaptopCode />,
 			iconColor: "text-yellow-500 dark:text-yellow-400",
+		},
+		{
+			startDate: t("education.items.2.startDate"),
+			endDate: t("education.items.2.endDate"),
+			schoolName: t("education.items.2.schoolName"),
+			address: t("education.items.2.address"),
+			courseName: t("education.items.2.courseName"),
+			icon: <FaGraduationCap />,
+			iconColor: "text-blue-500 dark:text-blue-400",
 		},
 	];
 

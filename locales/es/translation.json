@@ -72,8 +72,8 @@
     "present": "Presente",
     "items": [
       {
-        "startDate": "Noviembre  2023",
-        "endDate": "Marzo  2024",
+        "startDate": "Noviembre 2023",
+        "endDate": "Marzo 2024",
         "collegeName": "4Geeks Academy",
         "courseName": "Desarrollador de Software Full Stack"
       },
@@ -83,8 +83,16 @@
         "schoolName": "ORT",
         "address": "Uruguay",
         "courseName": "Analista Programador"
+      },
+      {
+        "startDate": "Marzo 2015",
+        "endDate": "Septiembre 2018",
+        "schoolName": "UTU",
+        "address": "Uruguay",
+        "courseName": "Educación Media Tecnológica Informática"
       }
     ]
+
   },
   "theme": "Cambiar tema",
   "language": "Cambiar idioma"
