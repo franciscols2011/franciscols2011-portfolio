@@ -32,7 +32,7 @@
     "at": "at",
     "items": [
       {
-        "startDate": "May 2024",
+        "startDate": "May  2024",
         "endDate": "Present",
         "companyName": "Integral Solutions",
         "jobTitle": "Genexus Software Developer",
@@ -42,8 +42,8 @@
         ]
       },
       {
-        "startDate": "2024",
-        "endDate": "Present",
+        "startDate": "July  2024",
+        "endDate": "October  2024",
         "companyName": "RedPagos",
         "jobTitle": "Cashier",
         "description": [
@@ -53,8 +53,8 @@
         ]
       },
       {
-        "startDate": "January 2023",
-        "endDate": "August 2023",
+        "startDate": "January  2023",
+        "endDate": "August  2023",
         "companyName": "Salinas del Almirón Resort Termal",
         "jobTitle": "Receptionist",
         "description": [
@@ -72,8 +72,8 @@
     "present": "Present",
     "items": [
       {
-        "startDate": "November 2023",
-        "endDate": "March 2024",
+        "startDate": "November  2023",
+        "endDate": "March  2024",
         "collegeName": "4Geeks Academy",
         "courseName": "Full Stack Software Developer"
       },
