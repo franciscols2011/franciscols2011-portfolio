@@ -95,8 +95,8 @@ export function CustomDock({}: { orientation?: "vertical" | "horizontal" }) {
 						: "bottom-4 left-1/2 transform -translate-x-1/2",
 					"flex",
 					currentOrientation === "vertical"
-						? "flex-col space-y-2 sm:space-y-3"
-						: "flex-row space-x-2 sm:space-x-3",
+						? "flex-col space-y-2 sm:space-y-3 items-center"
+						: "flex-row space-x-2 sm:space-x-3 items-center",
 					"bg-white dark:bg-gray-800 bg-opacity-70 dark:bg-opacity-70",
 					"backdrop-filter backdrop-blur-md",
 					"p-1 sm:p-2",

@@ -16,10 +16,14 @@ const geistMono = localFont({
 	weight: "100 900",
 });
 
-export const metadata: Metadata = {
-	title: "Francisco López Portfolio",
-	description: "Application with portfolio professional profile",
-	viewport: "width=device-width, initial-scale=1",
+export const metadata = {
+	title: "Mi Sitio Web",
+	description: "Descripción de mi sitio web.",
+};
+
+export const viewport = {
+	width: "device-width",
+	initialScale: 1,
 };
 
 export default function RootLayout({
