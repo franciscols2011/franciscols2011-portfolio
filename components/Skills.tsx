@@ -1,6 +1,6 @@
 // components/Skills.tsx
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import {
 	FaNodeJs,
@@ -132,6 +132,15 @@ const skillVariants = {
 
 function Skills() {
 	const { t } = useTranslation();
+	const [mounted, setMounted] = useState(false);
+
+	useEffect(() => {
+		setMounted(true);
+	}, []);
+
+	if (!mounted) {
+		return null;
+	}
 
 	return (
 		<motion.div

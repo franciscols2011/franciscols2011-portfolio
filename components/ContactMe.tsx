@@ -1,6 +1,6 @@
 // components/ContactMe.tsx
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FaEnvelope, FaLinkedin, FaGithub } from "react-icons/fa";
 import { motion } from "framer-motion";
 import Particles from "@/components/ui/particles";
@@ -8,6 +8,15 @@ import { useTranslation } from "react-i18next";
 
 function ContactMe() {
 	const { t } = useTranslation();
+	const [mounted, setMounted] = useState(false);
+
+	useEffect(() => {
+		setMounted(true);
+	}, []);
+
+	if (!mounted) {
+		return null;
+	}
 
 	return (
 		<motion.div

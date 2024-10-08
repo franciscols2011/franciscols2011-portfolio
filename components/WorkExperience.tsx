@@ -1,24 +1,12 @@
 // components/WorkExperience.tsx
 "use client";
 
-import React, { useEffect, useState } from "react";
-import Link from "next/link";
-import { HomeIcon, Moon, Sun, MailIcon } from "lucide-react";
-import {
-	Tooltip,
-	TooltipContent,
-	TooltipProvider,
-	TooltipTrigger,
-} from "@/components/ui/tooltip";
-import { Dock, DockIcon } from "@/components/ui/dock";
-import { useTheme } from "next-themes";
+import React from "react";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
-import ReactCountryFlag from "react-country-flag";
-import { useMediaQuery } from "@/hooks/useMediaQuery";
-import { cn } from "@/lib/utils";
 import { FaBuilding, FaCashRegister, FaHotel } from "react-icons/fa";
 import Particles from "./ui/particles";
+import { useEffect, useState } from "react";
 
 interface WorkExperienceItem {
 	startDate: string;
@@ -32,6 +20,15 @@ interface WorkExperienceItem {
 
 const WorkExperience = () => {
 	const { t } = useTranslation();
+	const [mounted, setMounted] = useState(false);
+
+	useEffect(() => {
+		setMounted(true);
+	}, []);
+
+	if (!mounted) {
+		return null;
+	}
 
 	const workExperienceData: WorkExperienceItem[] = [
 		{

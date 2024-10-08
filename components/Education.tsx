@@ -1,6 +1,6 @@
 // components/Education.tsx
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { FaCode, FaLaptopCode } from "react-icons/fa";
 import Particles from "@/components/ui/particles";
@@ -19,6 +19,15 @@ interface EducationItem {
 
 const Education = () => {
 	const { t } = useTranslation();
+	const [mounted, setMounted] = useState(false);
+
+	useEffect(() => {
+		setMounted(true);
+	}, []);
+
+	if (!mounted) {
+		return null;
+	}
 
 	const educationData: EducationItem[] = [
 		{

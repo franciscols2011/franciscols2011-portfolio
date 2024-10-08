@@ -1,6 +1,7 @@
 // components/Intro.tsx
 "use client";
 
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Particles from "@/components/ui/particles";
 import { motion } from "framer-motion";
@@ -22,6 +23,15 @@ const itemVariants = {
 
 const Intro = () => {
 	const { t } = useTranslation();
+	const [mounted, setMounted] = useState(false);
+
+	useEffect(() => {
+		setMounted(true);
+	}, []);
+
+	if (!mounted) {
+		return null;
+	}
 
 	return (
 		<motion.div

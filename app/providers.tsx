@@ -8,7 +8,7 @@ import i18n from "@/locales/i18n";
 export default function Providers({ children }: { children: React.ReactNode }) {
 	return (
 		<ThemeProvider attribute="class">
-			<I18nextProvider i18n={i18n}> {children} </I18nextProvider>
+			<I18nextProvider i18n={i18n}>{children}</I18nextProvider>
 		</ThemeProvider>
 	);
 }
