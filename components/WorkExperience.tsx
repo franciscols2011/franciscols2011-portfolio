@@ -1,26 +1,37 @@
+// components/WorkExperience.tsx
+"use client";
+
+import React from "react";
+import { motion } from "framer-motion";
+import { FaBuilding, FaCashRegister, FaHotel } from "react-icons/fa";
+import Particles from "@/components/ui/particles";
+
 interface WorkExperienceItem {
 	startDate: string;
 	endDate: string;
 	companyName: string;
 	jobTitle: string;
 	description: string[];
+	icon?: React.ReactNode;
+	iconColor?: string;
 }
 
 const workExperienceData: WorkExperienceItem[] = [
 	{
 		startDate: "Mayo 2024",
-		endDate: "Present",
+		endDate: "Presente",
 		companyName: "Integral Solutions",
 		jobTitle: "Desarrollador de Software Genexus",
 		description: [
 			"Creé y mantuve paneles web intuitivos con Genexus y Descartes, automatizando procesos y generando reportes detallados para optimizar operaciones.",
 			"Gestioné operaciones ABM, mejorando la integridad y precisión de los datos, desarrollando habilidades en la gestión eficiente de información",
 		],
+		icon: <FaBuilding />,
+		iconColor: "text-blue-500 dark:text-blue-400",
 	},
-
 	{
 		startDate: "Agosto 2024",
-		endDate: "Present",
+		endDate: "Presente",
 		companyName: "RedPagos",
 		jobTitle: "Cajero",
 		description: [
@@ -28,8 +39,9 @@ const workExperienceData: WorkExperienceItem[] = [
 			"Brindo un soporte personalizado a clientes en pagos y facturación, mejorando su experiencia.",
 			"Mantengo registros financieros exactos, garantizando la integridad contable.",
 		],
+		icon: <FaCashRegister />,
+		iconColor: "text-green-500 dark:text-green-400",
 	},
-
 	{
 		startDate: "Enero 2023",
 		endDate: "Agosto 2023",
@@ -39,36 +51,82 @@ const workExperienceData: WorkExperienceItem[] = [
 			"Interacción profesional con clientes, resolviendo dudas y gestionando solicitudes con empatía, mejorando su experiencia.",
 			"Implementación de soluciones en Excel para el control de reservas y auditorías, optimizando la organización.",
 			"Resolución rápida de problemas técnicos en el sistema de reservas, minimizando tiempos de inactividad",
-			"Realización de ventas a través de la web y llamadas, empleando técnicas de persuasión para cumplir objetivos. ",
+			"Realización de ventas a través de la web y llamadas, empleando técnicas de persuasión para cumplir objetivos.",
 		],
+		icon: <FaHotel />,
+		iconColor: "text-orange-500 dark:text-orange-400",
 	},
 ];
 
+const listVariants = {
+	hidden: {},
+	visible: {
+		transition: {
+			staggerChildren: 0.3,
+		},
+	},
+};
+
+const itemVariants = {
+	hidden: { opacity: 0, x: -30 },
+	visible: { opacity: 1, x: 0 },
+};
+
 const WorkExperience = () => {
 	return (
-		<div className="w-full bg-white p-8 rounded-lg shadow-lg">
-			<h1 className="text-2xl font-bold mb-4">Experiencia Profesional</h1>
-			<div className="p-1">
-				<ol className="relative border-l border-gray-200 dark:border-gray-700">
+		<motion.div
+			className="relative w-full p-8 rounded-lg shadow-lg bg-white dark:bg-gray-800 overflow-hidden"
+			initial="hidden"
+			animate="visible"
+			variants={listVariants}
+		>
+			<Particles
+				className="absolute inset-0 z-0"
+				color="rgba(0, 0, 0, 0.02)"
+				quantity={100}
+				size={2}
+			/>
+			<div className="relative z-10 w-full p-8 rounded-lg">
+				<h1 className="text-3xl font-extrabold mb-4 text-gray-800 dark:text-gray-200 tracking-wider">
+					Experiencia Profesional
+				</h1>
+				<motion.ol
+					className="relative border-l border-gray-300 dark:border-gray-700 ml-6"
+					variants={listVariants}
+				>
 					{workExperienceData.map((item, index) => (
-						<li key={index} className="mb-10 ml-4">
-							<div className="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -left-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
-							<time className="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
-								{item.startDate} - {item.endDate}
-							</time>
-							<h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-								{item.jobTitle} en {item.companyName}
-							</h3>
-							<ul className="text-base text-gray-700 list-disc ml-5 mt-2">
+						<motion.li
+							key={index}
+							className="mb-10 ml-6"
+							variants={itemVariants}
+						>
+							<div className="flex items-center gap-4">
+								<motion.div
+									className={`text-3xl ${item.iconColor}`}
+									whileHover={{ scale: 1.2, rotate: 10 }}
+									transition={{ type: "spring", stiffness: 300 }}
+								>
+									{item.icon}
+								</motion.div>
+								<div>
+									<time className="mb-1 text-sm font-normal leading-none text-gray-500 dark:text-gray-400">
+										{item.startDate} - {item.endDate}
+									</time>
+									<h3 className="text-xl font-semibold text-gray-800 dark:text-gray-200">
+										{item.jobTitle} en {item.companyName}
+									</h3>
+								</div>
+							</div>
+							<ul className="text-base text-gray-700 dark:text-gray-300 list-disc ml-5 mt-2 space-y-1">
 								{item.description.map((desc, idx) => (
 									<li key={idx}>{desc}</li>
 								))}
 							</ul>
-						</li>
+						</motion.li>
 					))}
-				</ol>
+				</motion.ol>
 			</div>
-		</div>
+		</motion.div>
 	);
 };
 

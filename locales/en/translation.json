@@ -1,0 +1,29 @@
+{
+    "contact": {
+      "title": "Get in Touch!",
+      "description": "If you want to get in touch with me, you can send me an email or follow me on my social networks.",
+      "email": "Send Email",
+      "linkedin": "LinkedIn",
+      "github": "GitHub"
+    },
+    "intro": {
+      "name": "Juan Francisco Lopez",
+      "description": "Software developer experienced in JavaScript, React, Python, and Java, specializing in designing intuitive applications. Skilled at solving complex problems, backed by 3 years in customer service. Excellent communication and teamwork skills, focused on efficient solutions and technical collaboration."
+    },
+    "skills": {
+      "title": "Skills"
+    },
+    "projects": {
+      "title": "Projects",
+      "code": "Code"
+    },
+    "work_experience": {
+      "title": "Professional Experience"
+    },
+    "education": {
+      "title": "Education"
+    },
+    "theme": "Toggle Theme",
+    "language": "Change Language"
+  }
+  

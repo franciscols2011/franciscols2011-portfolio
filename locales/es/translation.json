@@ -1,0 +1,29 @@
+{
+    "contact": {
+      "title": "¡Ponte en Contacto!",
+      "description": "Si deseas ponerte en contacto conmigo, puedes enviarme un correo electrónico o seguirme en mis redes sociales.",
+      "email": "Enviar Email",
+      "linkedin": "LinkedIn",
+      "github": "GitHub"
+    },
+    "intro": {
+      "name": "Juan Francisco Lopez",
+      "description": "Desarrollador de software con experiencia en JavaScript, React, Python y Java, especializado en diseñar aplicaciones intuitivas. Habilidad para resolver problemas complejos, respaldada por 3 años en atención al cliente. Excelentes habilidades de comunicación y trabajo en equipo, con enfoque en soluciones eficientes y colaboración técnica."
+    },
+    "skills": {
+      "title": "Habilidades"
+    },
+    "projects": {
+      "title": "Proyectos",
+      "code": "Código"
+    },
+    "work_experience": {
+      "title": "Experiencia Profesional"
+    },
+    "education": {
+      "title": "Educación"
+    },
+    "theme": "Cambiar tema",
+    "language": "Cambiar idioma"
+  }
+  
