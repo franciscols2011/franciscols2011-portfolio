@@ -12,7 +12,7 @@ export interface DockProps extends VariantProps<typeof dockVariants> {
 	orientation?: "horizontal" | "vertical";
 }
 
-const dockVariants = cva(""); // Sin estilos adicionales
+const dockVariants = cva("");
 
 const Dock: React.FC<DockProps> = ({
 	className,

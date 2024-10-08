@@ -118,17 +118,24 @@ const skillsData = [
 ];
 
 const containerVariants = {
-	hidden: {},
+	hidden: { opacity: 0 },
 	visible: {
+		opacity: 1,
 		transition: {
+			duration: 0.8,
+			ease: "easeOut",
 			staggerChildren: 0.1,
 		},
 	},
 };
 
 const skillVariants = {
-	hidden: { opacity: 0, scale: 0 },
-	visible: { opacity: 1, scale: 1 },
+	hidden: { opacity: 0, scale: 0.8 },
+	visible: {
+		opacity: 1,
+		scale: 1,
+		transition: { duration: 0.6, ease: "easeOut" },
+	},
 };
 
 function Skills() {
@@ -157,27 +164,31 @@ function Skills() {
 				size={1.5}
 			/>
 			<div className="relative z-10 w-full p-4 sm:p-6 rounded-lg">
-				<h1 className="text-2xl sm:text-3xl font-extrabold mb-3 text-gray-800 dark:text-gray-200 tracking-wide">
+				<h1 className="text-3xl sm:text-4xl font-extrabold mb-6 text-gray-800 dark:text-gray-200 tracking-wide text-center">
 					{t("skills.title")}
 				</h1>
-				<div className="flex flex-wrap gap-4 sm:gap-6 justify-center">
+				<motion.div
+					className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-6 justify-items-center"
+					variants={containerVariants}
+				>
 					{skillsData.map((skill, index) => (
 						<motion.a
 							key={index}
 							href={skill.link}
 							target="_blank"
 							rel="noopener noreferrer"
-							className="flex flex-col items-center bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 text-xs sm:text-sm font-medium px-4 py-3 rounded-lg cursor-pointer shadow"
+							className="flex flex-col items-center justify-center w-24 h-24 sm:w-32 sm:h-32 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 text-sm sm:text-base font-medium rounded-lg cursor-pointer shadow transition-transform"
 							variants={skillVariants}
-							whileTap={{ scale: 0.95 }}
+							whileHover={{ scale: 1.1 }}
+							transition={{ type: "spring", stiffness: 300 }}
 						>
-							<div className={`text-3xl sm:text-4xl mb-1 ${skill.iconColor}`}>
+							<div className={`text-4xl sm:text-5xl mb-2 ${skill.iconColor}`}>
 								{skill.icon}
 							</div>
-							<span>{skill.name}</span>
+							<span className="text-center">{skill.name}</span>
 						</motion.a>
 					))}
-				</div>
+				</motion.div>
 			</div>
 		</motion.div>
 	);

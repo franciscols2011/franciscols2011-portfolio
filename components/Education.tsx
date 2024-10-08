@@ -58,19 +58,27 @@ const Education = () => {
 		},
 	];
 
-	const listVariants = {
-		hidden: { opacity: 0 },
+	const containerVariants = {
+		hidden: { opacity: 0, scale: 0.95 },
 		visible: {
 			opacity: 1,
+			scale: 1,
 			transition: {
-				staggerChildren: 0.2,
+				duration: 0.8,
+				ease: "easeOut",
+				staggerChildren: 0.3,
 			},
 		},
 	};
 
 	const itemVariants = {
-		hidden: { opacity: 0, x: -20 },
-		visible: { opacity: 1, x: 0 },
+		hidden: { opacity: 0, x: -50, rotate: -5 },
+		visible: {
+			opacity: 1,
+			x: 0,
+			rotate: 0,
+			transition: { duration: 0.6, ease: "easeOut" },
+		},
 	};
 
 	return (
@@ -78,40 +86,41 @@ const Education = () => {
 			className="relative w-full p-6 sm:p-8 rounded-lg shadow-lg bg-white dark:bg-gray-800 overflow-hidden"
 			initial="hidden"
 			animate="visible"
-			variants={listVariants}
+			variants={containerVariants}
 		>
 			<Particles
 				className="absolute inset-0 z-0"
 				color="rgba(0, 0, 0, 0.02)"
-				quantity={80}
-				size={1.5}
+				quantity={100}
+				size={2}
 			/>
 			<div className="relative z-10 w-full p-4 sm:p-6 rounded-lg">
-				<h1 className="text-2xl sm:text-3xl font-extrabold mb-3 text-gray-800 dark:text-gray-200 tracking-wide">
+				<h1 className="text-3xl sm:text-4xl font-extrabold mb-4 text-gray-800 dark:text-gray-200 tracking-wide">
 					{t("education.title")}
 				</h1>
 				<motion.ol
 					className="relative border-l border-gray-300 dark:border-gray-700 ml-4 sm:ml-6"
-					variants={listVariants}
+					variants={containerVariants}
 				>
 					{educationData.map((item, index) => (
 						<motion.li
 							key={index}
-							className="mb-8 sm:mb-10 ml-4 sm:ml-6"
+							className="mb-8 sm:mb-12 ml-4 sm:ml-6"
 							variants={itemVariants}
 						>
-							<div className="flex items-center gap-3 sm:gap-4">
+							<div className="flex items-center gap-4 sm:gap-5">
 								<motion.div
-									className={`text-2xl sm:text-3xl ${item.iconColor}`}
-									whileTap={{ scale: 0.9 }}
+									className={`text-3xl sm:text-4xl ${item.iconColor}`}
+									whileHover={{ scale: 1.2, rotate: 10 }}
+									transition={{ type: "spring", stiffness: 300 }}
 								>
 									{item.icon}
 								</motion.div>
 								<div>
-									<time className="mb-1 text-xs sm:text-sm font-normal leading-none text-gray-500 dark:text-gray-400">
+									<time className="mb-1 text-sm sm:text-base font-normal leading-none text-gray-500 dark:text-gray-400">
 										{item.startDate} - {item.endDate || t("education.present")}
 									</time>
-									<h3 className="text-lg sm:text-xl font-semibold text-gray-800 dark:text-gray-200">
+									<h3 className="text-xl sm:text-2xl font-semibold text-gray-800 dark:text-gray-200">
 										{item.courseName} {t("education.at")}{" "}
 										{item.collegeName || item.schoolName}
 									</h3>

@@ -17,10 +17,13 @@ import { useTranslation } from "react-i18next";
 import ReactCountryFlag from "react-country-flag";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { cn } from "@/lib/utils";
-
 import { FaLinkedin, FaGithub, FaHome } from "react-icons/fa";
 
 export type IconProps = React.HTMLAttributes<SVGElement>;
+
+interface CustomDockProps {
+	orientation?: "vertical" | "horizontal";
+}
 
 const DATA = {
 	navbar: [{ href: "#", icon: FaHome, label: "Home" }],
@@ -43,11 +46,10 @@ const DATA = {
 	],
 };
 
-export function CustomDock({}: { orientation?: "vertical" | "horizontal" }) {
+export function CustomDock({}: CustomDockProps) {
 	const { resolvedTheme, setTheme } = useTheme();
 	const [mounted, setMounted] = useState(false);
 	const { i18n, t } = useTranslation();
-
 	const isLargeScreen = useMediaQuery("(min-width: 1024px)");
 	const currentOrientation = isLargeScreen ? "vertical" : "horizontal";
 
