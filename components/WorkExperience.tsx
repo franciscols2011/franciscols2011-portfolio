@@ -1,11 +1,24 @@
 // components/WorkExperience.tsx
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
+import Link from "next/link";
+import { HomeIcon, Moon, Sun, MailIcon } from "lucide-react";
+import {
+	Tooltip,
+	TooltipContent,
+	TooltipProvider,
+	TooltipTrigger,
+} from "@/components/ui/tooltip";
+import { Dock, DockIcon } from "@/components/ui/dock";
+import { useTheme } from "next-themes";
 import { motion } from "framer-motion";
-import { FaBuilding, FaCashRegister, FaHotel } from "react-icons/fa";
-import Particles from "@/components/ui/particles";
 import { useTranslation } from "react-i18next";
+import ReactCountryFlag from "react-country-flag";
+import { useMediaQuery } from "@/hooks/useMediaQuery";
+import { cn } from "@/lib/utils";
+import { FaBuilding, FaCashRegister, FaHotel } from "react-icons/fa";
+import Particles from "./ui/particles";
 
 interface WorkExperienceItem {
 	startDate: string;
@@ -28,7 +41,7 @@ const WorkExperience = () => {
 			jobTitle: t("work_experience.items.0.jobTitle"),
 			description: t("work_experience.items.0.description", {
 				returnObjects: true,
-			}),
+			}) as string[],
 			icon: <FaBuilding />,
 			iconColor: "text-blue-500 dark:text-blue-400",
 		},
@@ -39,7 +52,7 @@ const WorkExperience = () => {
 			jobTitle: t("work_experience.items.1.jobTitle"),
 			description: t("work_experience.items.1.description", {
 				returnObjects: true,
-			}),
+			}) as string[],
 			icon: <FaCashRegister />,
 			iconColor: "text-green-500 dark:text-green-400",
 		},
@@ -50,7 +63,7 @@ const WorkExperience = () => {
 			jobTitle: t("work_experience.items.2.jobTitle"),
 			description: t("work_experience.items.2.description", {
 				returnObjects: true,
-			}),
+			}) as string[],
 			icon: <FaHotel />,
 			iconColor: "text-orange-500 dark:text-orange-400",
 		},
