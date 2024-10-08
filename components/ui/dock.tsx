@@ -12,9 +12,7 @@ export interface DockProps extends VariantProps<typeof dockVariants> {
 	orientation?: "horizontal" | "vertical";
 }
 
-const dockVariants = cva(
-	"flex gap-2 lg:gap-3 p-2 lg:p-4 rounded-lg lg:rounded-2xl bg-white/25 dark:bg-gray-800/25 backdrop-blur-md shadow-lg border border-white/10 dark:border-gray-700/25 transition-all"
-);
+const dockVariants = cva(""); // Sin estilos adicionales
 
 const Dock: React.FC<DockProps> = ({
 	className,
@@ -26,12 +24,12 @@ const Dock: React.FC<DockProps> = ({
 		<motion.div
 			{...props}
 			className={cn(
-				dockVariants({ className }),
+				className,
 				{
 					"flex-col": orientation === "vertical",
 					"flex-row": orientation === "horizontal",
 				},
-				"relative"
+				"flex relative"
 			)}
 		>
 			{children}
